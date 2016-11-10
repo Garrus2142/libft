@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:33:57 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/08 10:36:17 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/10 19:27:38 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/10 20:41:19 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+static int	get_divide(int n)
 {
-	const unsigned char	*s_char;
-	unsigned char		c_char;
-	size_t				i;
+	int	divide;
 
-	s_char = (unsigned char *)s;
-	c_char = (unsigned char)c;
-	i = 0;
-	while (i < n)
+	n = ft_abs(n);
+	divide = 1;
+	while (n > 9)
 	{
-		if (s_char[i] == c_char)
-			return ((void *)&s_char[i]);
-		i++;
+		n /= 10;
+		divide *= 10;
 	}
-	return (NULL);
+	return (divide);
+}
+
+void		ft_putnbr_fd(int n, int fd)
+{
+	int	divide;
+
+	if (n == FT_INT_MIN)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n < 0)
+		ft_putchar_fd('-', fd);
+	divide = get_divide(n);
+	while (divide > 0)
+	{
+		ft_putchar_fd((n / divide) + '0', fd);
+		n -= (n / divide) * divide;
+		divide /= 10;
+	}
 }

@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:33:57 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/08 10:36:17 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/10 17:12:59 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/10 17:14:05 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_abs(int i)
 {
-	const unsigned char	*s_char;
-	unsigned char		c_char;
-	size_t				i;
-
-	s_char = (unsigned char *)s;
-	c_char = (unsigned char)c;
-	i = 0;
-	while (i < n)
-	{
-		if (s_char[i] == c_char)
-			return ((void *)&s_char[i]);
-		i++;
-	}
-	return (NULL);
+	return (i < 0 ? i * -1 : i);
 }

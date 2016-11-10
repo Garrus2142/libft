@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:33:57 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/08 10:36:17 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/10 19:23:54 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/10 19:24:13 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	const unsigned char	*s_char;
-	unsigned char		c_char;
-	size_t				i;
+	int	i;
 
-	s_char = (unsigned char *)s;
-	c_char = (unsigned char)c;
 	i = 0;
-	while (i < n)
+	if (s == NULL)
+		return ;
+	while (s[i] != '\0')
 	{
-		if (s_char[i] == c_char)
-			return ((void *)&s_char[i]);
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	return (NULL);
 }

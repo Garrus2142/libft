@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:33:57 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/08 10:36:17 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/08 15:55:50 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/08 17:30:57 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	const unsigned char	*s_char;
-	unsigned char		c_char;
-	size_t				i;
+	size_t	len_dst;
+	size_t	len_src;
 
-	s_char = (unsigned char *)s;
-	c_char = (unsigned char)c;
-	i = 0;
-	while (i < n)
-	{
-		if (s_char[i] == c_char)
-			return ((void *)&s_char[i]);
-		i++;
-	}
-	return (NULL);
+	len_dst = 0;
+	len_src = ft_strlen(src);
+	while (dst[len_dst] != '\0' && len_dst < size)
+		len_dst++;
+	if (dst[len_dst] != '\0')
+		len_dst = size;
+	else
+		ft_strncat(dst, src, len_dst + 1 > size ? 0 : size - (len_dst + 1));
+	return (len_dst + len_src);
 }

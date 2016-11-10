@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:33:57 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/08 10:36:17 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/09 10:25:04 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/09 12:04:38 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	const unsigned char	*s_char;
-	unsigned char		c_char;
-	size_t				i;
+	const unsigned char	*s1_c;
+	const unsigned char *s2_c;
+	int					i;
 
-	s_char = (unsigned char *)s;
-	c_char = (unsigned char)c;
+	s1_c = (unsigned char *)s1;
+	s2_c = (unsigned char *)s2;
 	i = 0;
-	while (i < n)
+	while (s1_c[i] != '\0' && s2_c[i] != '\0')
 	{
-		if (s_char[i] == c_char)
-			return ((void *)&s_char[i]);
+		if (s1_c[i] != s2_c[i])
+			return (s1_c[i] - s2_c[i]);
 		i++;
 	}
-	return (NULL);
+	if (s1_c[i] != s2_c[i])
+		return (s1_c[i] - s2_c[i]);
+	return (0);
 }

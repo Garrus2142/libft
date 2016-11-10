@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:33:57 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/08 10:36:17 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/08 20:33:40 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/08 20:58:36 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	const unsigned char	*s_char;
-	unsigned char		c_char;
-	size_t				i;
+	size_t		i_big;
+	size_t		len_little;
 
-	s_char = (unsigned char *)s;
-	c_char = (unsigned char)c;
-	i = 0;
-	while (i < n)
+	i_big = 0;
+	len_little = ft_strlen(little);
+	if (ft_strlen(little) == 0)
+		return ((char *)big);
+	while (big[i_big] != '\0' && i_big < len)
 	{
-		if (s_char[i] == c_char)
-			return ((void *)&s_char[i]);
-		i++;
+		if (big[i_big] == little[0] && i_big + len_little <= len)
+		{
+			if (ft_strncmp(&big[i_big], little, len_little) == 0)
+				return ((char *)&big[i_big]);
+		}
+		i_big++;
 	}
 	return (NULL);
 }

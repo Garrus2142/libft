@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:33:57 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/08 10:36:17 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/09 18:08:34 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/09 20:38:34 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+static int	iswhite(char c)
 {
-	const unsigned char	*s_char;
-	unsigned char		c_char;
-	size_t				i;
+	if (c == ' ' || c == '\n' || c == '\t')
+		return (1);
+	return (0);
+}
 
-	s_char = (unsigned char *)s;
-	c_char = (unsigned char)c;
+char		*ft_strtrim(char const *s)
+{
+	int		i;
+	int		start;
+	int		end;
+
 	i = 0;
-	while (i < n)
-	{
-		if (s_char[i] == c_char)
-			return ((void *)&s_char[i]);
+	if (s == NULL)
+		return (NULL);
+	while (iswhite(s[i]))
 		i++;
-	}
-	return (NULL);
+	start = i;
+	i = ft_strlen(s) - 1;
+	while (i >= 0 && iswhite(s[i]))
+		i--;
+	end = i + 1;
+	if (start > end)
+		return (ft_strnew(0));
+	return (ft_strsub(s, (unsigned int)start, (size_t)end - (size_t)start));
 }

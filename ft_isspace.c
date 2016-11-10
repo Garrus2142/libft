@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 18:33:57 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/08 10:36:17 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/09 10:47:35 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/09 14:33:04 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_isspace(int c)
 {
-	const unsigned char	*s_char;
-	unsigned char		c_char;
-	size_t				i;
+	unsigned char	c_c;
 
-	s_char = (unsigned char *)s;
-	c_char = (unsigned char)c;
-	i = 0;
-	while (i < n)
-	{
-		if (s_char[i] == c_char)
-			return ((void *)&s_char[i]);
-		i++;
-	}
-	return (NULL);
+	c_c = (unsigned char)c;
+	if ((c_c >= 9 && c_c <= 13) || c_c == ' ')
+		return (1);
+	return (0);
 }

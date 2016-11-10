@@ -14,9 +14,7 @@
 # define FT_LIBFT_H
 # define FT_INT_MAX 2147483647
 # define FT_INT_MIN -2147483648
-# include <unistd.h>
 # include <string.h>
-# include <stdlib.h>
 
 typedef struct		s_list
 {

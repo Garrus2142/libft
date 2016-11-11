@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 19:27:38 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/10 20:41:19 by thugo            ###   ########.fr       */
+/*   Updated: 2016/11/11 19:12:58 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		ft_putnbr_fd(int n, int fd)
 	}
 	if (n < 0)
 		ft_putchar_fd('-', fd);
+	n = ft_abs(n);
 	divide = get_divide(n);
 	while (divide > 0)
 	{

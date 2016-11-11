@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 19:26:56 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/11 09:56:25 by thugo            ###   ########.fr       */
+/*   Created: 2016/11/11 15:56:58 by thugo             #+#    #+#             */
+/*   Updated: 2016/11/11 16:09:29 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	ft_putnbr_fd(n, STDOUT_FILENO);
+	t_list	*old;
+
+	if (alst == NULL || new == NULL)
+		return ;
+	old = *alst;
+	*alst = new;
+	(*alst)->next = old;
 }

@@ -6,10 +6,11 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 10:38:52 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/10 18:36:38 by thugo            ###   ########.fr       */
+/*   Updated: 2016/11/11 09:57:17 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 static int		count_size(char const *s, char c)

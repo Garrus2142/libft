@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/11 20:22:18 by thugo            ###   ########.fr       */
+/*   Updated: 2016/11/14 10:54:06 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ void				ft_strlower(char *str);
 int					ft_abs(int i);
 void				*ft_memdup(const void *src, size_t size);
 void				ft_lstinsert(t_list **alst, t_list *new);
+int					ft_is_negative(int n);
 
 #endif

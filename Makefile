@@ -6,7 +6,7 @@
 #    By: thugo <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 12:33:44 by thugo             #+#    #+#              #
-#    Updated: 2016/11/11 20:36:31 by thugo            ###   ########.fr        #
+#    Updated: 2016/11/14 11:07:49 by thugo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,19 +19,23 @@ FILE_SRC = ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr ft_memcm
 		   ft_strmapi ft_strequ ft_strnequ ft_strsub ft_strjoin ft_strtrim ft_strsplit ft_abs\
 		   ft_itoa ft_putchar ft_putstr ft_putendl ft_putnbr ft_putchar_fd ft_putstr_fd\
 		   ft_putendl_fd ft_putnbr_fd ft_lstnew ft_lstdelone ft_lstdel ft_lstadd ft_lstiter\
-		   ft_memdup ft_lstmap ft_lstinsert
+		   ft_memdup ft_lstmap ft_lstinsert ft_is_negative
 
 all: $(NAME)
 
 $(NAME):
-	gcc -Werror -Wall -Wextra -c $(FILE_SRC:=.c)
-	ar rc $(NAME) $(FILE_SRC:=.o)
-	ranlib $(NAME)
+	@echo "\033[34mCreation de la librairie $(NAME)...\033[0m"
+	@gcc -Werror -Wall -Wextra -c $(FILE_SRC:=.c)
+	@ar rc $(NAME) $(FILE_SRC:=.o)
+	@ranlib $(NAME)
+	@echo "\033[32mTermine\033[0m"
 
 clean:
-	/bin/rm -f $(FILE_SRC:=.o)
+	@echo "\033[34mSuppression des objets...\033[0m"
+	@/bin/rm -f $(FILE_SRC:=.o)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@echo "\033[34mSuppression de la librairie...\033[0m"
+	@/bin/rm -f $(NAME)
 
 re: fclean all

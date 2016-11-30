@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/29 20:50:51 by thugo            ###   ########.fr       */
+/*   Updated: 2016/11/30 12:53:49 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,7 @@ void				ft_lstinsert(t_list **alst, t_list *new);
 int					ft_is_negative(int n);
 int					ft_min(int a, int b);
 int					ft_max(int a, int b);
+size_t				ft_tabptrlen(void **tab);
+void				ft_tabptrfree(void	***tab);
 
 #endif

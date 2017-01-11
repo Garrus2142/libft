@@ -6,14 +6,14 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 18:43:15 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/11 09:55:51 by thugo            ###   ########.fr       */
+/*   Updated: 2017/01/11 20:51:07 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-void	ft_putchar(char c)
+void	ft_putchar(int c)
 {
 	ft_putchar_fd(c, STDOUT_FILENO);
 }

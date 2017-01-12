@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/01/11 22:06:19 by thugo            ###   ########.fr       */
+/*   Updated: 2017/01/12 12:17:50 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ char				*ft_strnstr(const char *big, const char *little,
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
+int					ft_atoi_base(const char *str, const char *base);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -98,5 +99,6 @@ int					ft_min(int a, int b);
 int					ft_max(int a, int b);
 size_t				ft_tabptrlen(void **tab);
 void				ft_tabptrfree(void	***tab);
+int					ft_pow(int x, int y);
 
 #endif

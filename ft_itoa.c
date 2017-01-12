@@ -6,30 +6,11 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:57:37 by thugo             #+#    #+#             */
-/*   Updated: 2016/11/10 19:31:32 by thugo            ###   ########.fr       */
+/*   Updated: 2017/01/12 12:43:05 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	power(int a, int b)
-{
-	int		i;
-	int		res;
-
-	i = 1;
-	res = a;
-	if (b <= 0)
-		return (1);
-	else if (b == 1)
-		return (a);
-	while (i < b)
-	{
-		res *= a;
-		i++;
-	}
-	return (res);
-}
 
 static int	count_size(int n)
 {
@@ -58,7 +39,7 @@ static void	convert(char *str, int n, int size)
 	if (n < 0)
 		str[i++] = '-';
 	n = ft_abs(n);
-	divide = power(10, size - 1);
+	divide = ft_pow(10, size - 1);
 	while (divide > 0)
 	{
 		str[i] = (n / divide) + '0';

@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 15:56:46 by thugo             #+#    #+#             */
-/*   Updated: 2017/01/13 15:56:48 by thugo            ###   ########.fr       */
+/*   Updated: 2017/01/19 04:59:35 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,25 @@
 
 char		*ft_itoa(int n)
 {
-	char	*str;
-	int		div;
-	int		res;
+	int		str_size;
+	int		res_div;
 	int		i;
+	char	*str;
 
-	res = n > 0 ? n * -1 : n;
-	div = 1;
-	i = n < 0 ? 2 : 1;
-	while (res / div < -10)
-	{
-		div *= 10;
-		i++;
-	}
-	if (!(str = ft_strnew(i)))
+	str_size = ft_is_negative(n) ? 2 : 1;
+	n = ft_is_negative(n) ? n : n * -1;
+	res_div = n;
+	while ((res_div = res_div / 10) < 0)
+		str_size++;
+	if (!(str = ft_strnew(str_size)))
 		return (NULL);
-	str[0] = '-';
-	i = n < 0 ? 1 : 0;
-	while (div > 0)
+	str[0] = ft_is_negative(n) ? '-' : '0';
+	res_div = n;
+	i = 0;
+	while (res_div < 0)
 	{
-		str[i] = ft_abs(res / div) + '0';
-		res -= (res / div) * div;
-		div /= 10;
+		str[str_size - (1 + i)] = '0' + ((res_div % 10) * -1);
+		res_div = res_div / 10;
 		i++;
 	}
 	return (str);

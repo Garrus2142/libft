@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 14:55:30 by thugo             #+#    #+#             */
-/*   Updated: 2017/01/12 19:06:19 by thugo            ###   ########.fr       */
+/*   Updated: 2017/01/19 01:13:48 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char		*ft_itoa_base(int nbr, const char *base)
 		str_size++;
 	if (!(str = ft_strnew(str_size)))
 		return (NULL);
-	str[0] = '-';
+	str[0] = ft_is_negative(nbr) ? '-' : '0';
 	res_div = nbr;
 	i = 0;
 	while (res_div < 0)

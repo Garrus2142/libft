@@ -6,7 +6,7 @@
 #    By: thugo <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 12:33:44 by thugo             #+#    #+#              #
-#    Updated: 2017/01/19 01:18:42 by thugo            ###   ########.fr        #
+#    Updated: 2017/01/23 19:03:37 by thugo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ FILE_SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memch
 		   ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c\
 		   ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c\
 		   ft_memdup.c ft_lstmap.c ft_lstinsert.c ft_is_negative.c ft_strndup.c ft_strnjoin.c ft_lstlen.c\
-		   ft_tabptrlen.c ft_tabptrfree.c ft_lstrem.c ft_strfjoin.c ft_pow.c ft_atoi_base.c ft_itoa_base.c
+		   ft_tabptrlen.c ft_tabptrfree.c ft_lstrem.c ft_strfjoin.c ft_pow.c ft_atoi_base.c ft_itoa_base.c\
+		   ft_to_utf8.c
 
 OBJ = $(FILE_SRC:.c=.o)
 

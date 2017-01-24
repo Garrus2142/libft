@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/23 18:47:06 by thugo             #+#    #+#             */
-/*   Updated: 2017/01/24 11:59:10 by thugo            ###   ########.fr       */
+/*   Updated: 2017/01/24 13:12:07 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ char	*ft_to_utf8(int c)
 {
 	char	*utf8;
 
-	utf8 = ft_strnew(5);
+	if ((utf8 = ft_strnew(5)) == NULL)
+		return (NULL);
 	if (c <= 0x7f)
 		utf8[0] = (char)c;
 	else if (c <= 0x07ff)

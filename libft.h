@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/01/24 14:02:39 by thugo            ###   ########.fr       */
+/*   Updated: 2017/01/24 15:17:27 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define FT_INT_MAX 2147483647
 # define FT_INT_MIN -2147483648
 # include <string.h>
+# include <wchar.h>
 
 typedef struct		s_list
 {
@@ -31,6 +32,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
+size_t				ft_wstrlen(const wchar_t *s);
 char				*ft_strdup(const char *s);
 char				*ft_strndup(const char *s, size_t len);
 char				*ft_strcpy(char *dst, const char *src);

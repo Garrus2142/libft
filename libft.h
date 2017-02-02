@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/01/24 17:53:52 by thugo            ###   ########.fr       */
+/*   Updated: 2017/02/02 14:20:48 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,5 @@ int					ft_pow(int x, int y);
 char				*ft_to_utf8(int c);
 void				*ft_memjoin(void const *s1, size_t l1, void const *s2,
 		size_t l2);
+int					ft_printf(const char *format, ...);
 #endif

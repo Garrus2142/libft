@@ -6,14 +6,14 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 05:05:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/02/03 05:45:10 by thugo            ###   ########.fr       */
+/*   Updated: 2017/02/03 10:45:27 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstaddsort(t_list **alst, t_list *new, int (*sort)(t_list *new,
-			t_list *next))
+void	ft_lstaddsort(t_list **alst, t_list *new, void *param,
+			int (*sort)(t_list *new, t_list *next, void *param))
 {
 	t_list	*prev;
 	t_list	*cur;
@@ -24,7 +24,7 @@ void	ft_lstaddsort(t_list **alst, t_list *new, int (*sort)(t_list *new,
 	cur = *alst;
 	while (cur)
 	{
-		if (sort(new, cur))
+		if (sort(new, cur, param))
 		{
 			if (!prev)
 				*alst = new;

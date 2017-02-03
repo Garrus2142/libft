@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/02/03 10:00:23 by thugo            ###   ########.fr       */
+/*   Updated: 2017/02/03 10:46:15 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-void				ft_lstaddsort(t_list **alst, t_list *new, int (*sort)
-						(t_list *new, t_list *next));
+void				ft_lstaddsort(t_list **alst, t_list *new, void *param,
+	   					int (*sort)(t_list *new, t_list *next, void *param));
 size_t				ft_lstlen(t_list *lst);
 void				ft_lstrem(t_list **lst);
 int					ft_isspace(int c);

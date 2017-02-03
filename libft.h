@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/02/03 05:21:49 by thugo            ###   ########.fr       */
+/*   Updated: 2017/02/03 10:00:23 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int					ft_min(int a, int b);
 int					ft_max(int a, int b);
 size_t				ft_tabptrlen(void **tab);
 void				ft_tabptrfree(void	***tab);
+void				ft_tabfree(void ***tab, size_t size);
 int					ft_pow(int x, int y);
 char				*ft_to_utf8(int c);
 void				*ft_memjoin(void const *s1, size_t l1, void const *s2,

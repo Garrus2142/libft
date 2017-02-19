@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/02/18 15:19:54 by thugo            ###   ########.fr       */
+/*   Updated: 2017/02/19 02:35:07 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ int					ft_printf(const char *format, ...);
 char				*ft_path_getfile(const char *path);
 char				**ft_tabsort(char **tab, size_t size,
 		int (*sort)(const char *s1, const char *s2));
+int					ft_sizelong(unsigned long n);
 
 #endif

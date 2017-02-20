@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/18 12:11:29 by thugo             #+#    #+#             */
-/*   Updated: 2017/02/18 13:01:58 by thugo            ###   ########.fr       */
+/*   Updated: 2017/02/20 08:16:48 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_path_getfile(const char *path)
 	istart = 0;
 	iend = -1;
 	hasslash = 0;
-	while (i-- >= 0 && !istart)
+	while (--i >= 0 && !istart)
 	{
 		if (iend == -1 && path[i] != '/')
 			iend = i;

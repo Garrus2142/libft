@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include "ft_printf.h"
 
 long long			get_ll_arg(t_parsing *p, va_list *ap, long long *arg)

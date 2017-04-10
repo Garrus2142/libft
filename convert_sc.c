@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include "ft_printf.h"
 
 static char	*process_c(t_parsing *p, va_list *ap, size_t *nbytes)
@@ -68,7 +69,7 @@ static char	*process_s(t_parsing *p, va_list *ap, size_t *nbytes)
 
 	if (p->conv_spec == 's' && p->lmod != LMOD_L)
 	{
-		len = p->precision == -1 ? SIZE_MAX : p->precision;
+		len = p->precision == -1 ? SIZE_MAX : (size_t)p->precision;
 		arg = va_arg(*ap, char *);
 		if ((s = ft_strndup((char *)arg == NULL ? "(null)" :
 				(char *)arg, len)) == NULL)

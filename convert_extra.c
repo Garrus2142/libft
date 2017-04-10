@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <inttypes.h>
 #include "ft_printf.h"
 
 static void	process_n(t_parsing *p, va_list *ap)

@@ -6,14 +6,16 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/02/19 02:35:07 by thugo            ###   ########.fr       */
+/*   Updated: 2017/04/13 18:21:24 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBFT_H
+
 # define FT_LIBFT_H
 # define FT_INT_MAX 2147483647
 # define FT_INT_MIN -2147483648
+
 # include <string.h>
 # include <wchar.h>
 
@@ -112,6 +114,8 @@ char				*ft_to_utf8(int c);
 void				*ft_memjoin(void const *s1, size_t l1, void const *s2,
 		size_t l2);
 int					ft_printf(const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
+int					ft_vdprintf(int fd, const char *format, va_list *ap);
 char				*ft_path_getfile(const char *path);
 char				**ft_tabsort(char **tab, size_t size,
 		int (*sort)(const char *s1, const char *s2));

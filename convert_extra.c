@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 16:20:33 by thugo             #+#    #+#             */
-/*   Updated: 2017/01/27 02:17:56 by thugo            ###   ########.fr       */
+/*   Updated: 2017/04/13 16:51:49 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,9 @@ static void	process_n(t_parsing *p, va_list *ap)
 		*(int *)arg = (int)buffer_getinfo();
 }
 
-static void	process_y(t_parsing *p, va_list *ap)
-{
-	char	*buffer;
-	char	**arg;
-
-	buffer = buffer_get();
-	if (p->conv_spec == 'y')
-	{
-		if ((arg = va_arg(*ap, char **)) != NULL)
-			*arg = buffer;
-	}
-	else
-		write(va_arg(*ap, int), buffer, buffer_getinfo());
-	if (p->attr & ATTR_HASHTAG)
-	{
-		buffer_clear();
-		buffer_init();
-	}
-}
-
 void		convert_extra(t_parsing *p, va_list *ap, size_t *nbytes)
 {
 	if (p->conv_spec == 'n')
 		process_n(p, ap);
-	else if (p->conv_spec == 'y' || p->conv_spec == 'Y')
-		process_y(p, ap);
 	*nbytes = 0;
 }

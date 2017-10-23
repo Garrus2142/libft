@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/04/13 18:21:24 by thugo            ###   ########.fr       */
+/*   Updated: 2017/10/23 17:25:39 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define FT_LIBFT_H
 # define FT_INT_MAX 2147483647
 # define FT_INT_MIN -2147483648
+# define BUFF_SIZE 32
 
 # include <string.h>
 # include <wchar.h>
@@ -25,6 +26,12 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_gnl
+{
+	int				fd;
+	char			buffer[BUFF_SIZE + 1];
+}					t_gnl;
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -120,5 +127,6 @@ char				*ft_path_getfile(const char *path);
 char				**ft_tabsort(char **tab, size_t size,
 		int (*sort)(const char *s1, const char *s2));
 int					ft_sizelong(unsigned long n);
+int					ft_gnl(const int fd, char **line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/10/23 17:25:39 by thugo            ###   ########.fr       */
+/*   Updated: 2017/10/24 18:00:20 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void				*ft_memjoin(void const *s1, size_t l1, void const *s2,
 int					ft_printf(const char *format, ...);
 int					ft_dprintf(int fd, const char *format, ...);
 int					ft_vdprintf(int fd, const char *format, va_list *ap);
-char				*ft_path_getfile(const char *path);
+char				*ft_basename(const char *path);
 char				**ft_tabsort(char **tab, size_t size,
 		int (*sort)(const char *s1, const char *s2));
 int					ft_sizelong(unsigned long n);

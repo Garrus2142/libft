@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_path_getfile.c                                  :+:      :+:    :+:   */
+/*   ft_basename.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: thugo <thugo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/18 12:11:29 by thugo             #+#    #+#             */
-/*   Updated: 2017/02/20 08:16:48 by thugo            ###   ########.fr       */
+/*   Created: 2017/10/24 17:58:46 by thugo             #+#    #+#             */
+/*   Updated: 2017/10/24 17:59:41 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_path_getfile(const char *path)
+char	*ft_basename(const char *path)
 {
 	int	iend;
 	int	istart;

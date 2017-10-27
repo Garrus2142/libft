@@ -6,7 +6,7 @@
 /*   By: thugo <thugo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 00:18:22 by thugo             #+#    #+#             */
-/*   Updated: 2017/10/27 02:22:28 by thugo            ###   ########.fr       */
+/*   Updated: 2017/10/27 03:24:24 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int			ft_getopt(int argc, char **argv, const char *options,
 			++i;
 			break ;
 		}
-		else if (argv[i][0] == '-')
+		else if (argv[i][0] == '-' && ft_strlen(argv[i]) > 1)
 		{
 			if (!parse_arg(argv[i] + 1, options, asciitab, res))
 				return (-1);

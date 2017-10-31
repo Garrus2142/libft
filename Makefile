@@ -6,7 +6,7 @@
 #    By: thugo <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/07 12:33:44 by thugo             #+#    #+#              #
-#    Updated: 2017/10/27 01:44:42 by thugo            ###   ########.fr        #
+#    Updated: 2017/10/31 18:24:27 by thugo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c f
 	  ft_to_utf8.c ft_llitoa_base.c ft_lluitoa_base.c ft_max.c ft_min.c ft_wstrlen.c ft_memjoin.c ft_dprintf.c\
 	  buffermanager.c convert_dioux.c convert_extra.c convert_sc.c vaargs.c parsing.c ft_lstaddsort.c\
 	  ft_tabfree.c ft_basename.c ft_tabsort.c ft_sizelong.c ft_vdprintf.c ft_printf.c ft_gnl.c \
-	  ft_getopt.c
+	  ft_getopt.c ft_strfdup.c ft_strnfdup.c
 
 #Dependance files
 DEP = Makefile libft.h

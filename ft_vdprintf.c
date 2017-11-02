@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:26:34 by thugo             #+#    #+#             */
-/*   Updated: 2017/04/13 18:28:36 by thugo            ###   ########.fr       */
+/*   Updated: 2017/11/02 20:30:03 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*process_field_width(t_parsing *p, char *str, size_t *nbytes)
 	return (new);
 }
 
-static void	process_conv(t_parsing *p, va_list *ap)
+static void	process_conv(t_buffer *buff, t_parsing *p, va_list *ap)
 {
 	size_t	nbytes;
 	char	*str;
@@ -54,7 +54,7 @@ static void	process_conv(t_parsing *p, va_list *ap)
 	else if (ft_strchr("cCsS%", p->conv_spec))
 		str = convert_sc(p, ap, &nbytes);
 	else if (ft_strchr("n", p->conv_spec))
-		convert_extra(p, ap, &nbytes);
+		convert_extra(buff, p, ap, &nbytes);
 	else if (p->conv_spec != -1)
 	{
 		if ((str = (char *)malloc(sizeof(char))) == NULL)
@@ -65,12 +65,12 @@ static void	process_conv(t_parsing *p, va_list *ap)
 	if (p->field_width > 0)
 		str = process_field_width(p, str, &nbytes);
 	if (nbytes > 0)
-		buffer_add(str, nbytes);
+		buffer_add(buff, str, nbytes);
 	if (str != NULL)
 		free(str);
 }
 
-static void	process_format(const char *format, va_list *ap)
+static void	process_format(t_buffer *buff, const char *format, va_list *ap)
 {
 	t_parsing	p;
 	int			i;
@@ -83,30 +83,31 @@ static void	process_format(const char *format, va_list *ap)
 		if (format[i] == '%')
 		{
 			if (s_start > -1)
-				buffer_add(format + s_start, (size_t)i - s_start);
+				buffer_add(buff, format + s_start, (size_t)i - s_start);
 			s_start = -1;
 			if (format[i + 1] == '\0')
 				break ;
 			i += parse_format(format + i + 1, &p, ap);
-			process_conv(&p, ap);
+			process_conv(buff, &p, ap);
 		}
 		else if (s_start == -1)
 			s_start = i;
 	}
 	if (s_start > -1)
-		buffer_add(format + s_start, (size_t)i - s_start);
+		buffer_add(buff, format + s_start, (size_t)i - s_start);
 }
 
 int			ft_vdprintf(int fd, const char *format, va_list *ap)
 {
 	size_t		nbytes;
 	char		*str;
+	t_buffer	buff;
 
-	buffer_init();
-	process_format(format, ap);
-	nbytes = buffer_getinfo();
-	str = buffer_get();
-	buffer_clear();
+	buffer_init(&buff);
+	process_format(&buff, format, ap);
+	nbytes = buffer_getinfo(&buff);
+	str = buffer_get(&buff);
+	buffer_clear(&buff);
 	if (nbytes > 0)
 		write(fd, str, nbytes);
 	free(str);

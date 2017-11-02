@@ -6,21 +6,19 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 19:11:05 by thugo             #+#    #+#             */
-/*   Updated: 2017/01/24 18:08:49 by thugo            ###   ########.fr       */
+/*   Updated: 2017/11/02 20:24:53 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static t_buffer	g_b;
-
-void	buffer_init(void)
+void	buffer_init(t_buffer *buff)
 {
-	g_b.buffer = NULL;
-	g_b.size_bytes = 0;
+	buff->buffer = NULL;
+	buff->size_bytes = 0;
 }
 
-void	buffer_add(const void *content, size_t size)
+void	buffer_add(t_buffer *buff, const void *content, size_t size)
 {
 	t_list	*el;
 
@@ -29,21 +27,21 @@ void	buffer_add(const void *content, size_t size)
 	el = ft_lstnew(content, size);
 	if (el == NULL)
 		exit(EXIT_FAILURE);
-	ft_lstinsert(&(g_b.buffer), el);
-	g_b.size_bytes += size;
+	ft_lstinsert(&(buff->buffer), el);
+	buff->size_bytes += size;
 }
 
-char	*buffer_get(void)
+char	*buffer_get(t_buffer *buff)
 {
 	t_list	*cur;
 	char	*str;
 	int		i;
 
-	str = (char *)malloc(sizeof(char) * g_b.size_bytes + 1);
+	str = (char *)malloc(sizeof(char) * buff->size_bytes + 1);
 	if (str == NULL)
 		exit(EXIT_FAILURE);
 	i = 0;
-	cur = g_b.buffer;
+	cur = buff->buffer;
 	while (cur)
 	{
 		ft_memcpy(str + i, cur->content, cur->content_size);
@@ -54,17 +52,17 @@ char	*buffer_get(void)
 	return (str);
 }
 
-size_t	buffer_getinfo(void)
+size_t	buffer_getinfo(t_buffer *buff)
 {
-	return (g_b.size_bytes);
+	return (buff->size_bytes);
 }
 
-void	buffer_clear(void)
+void	buffer_clear(t_buffer *buff)
 {
 	t_list	*cur;
 	t_list	*next;
 
-	cur = g_b.buffer;
+	cur = buff->buffer;
 	while (cur)
 	{
 		next = cur->next;

@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/16 18:43:19 by thugo             #+#    #+#             */
-/*   Updated: 2017/02/02 14:20:12 by thugo            ###   ########.fr       */
+/*   Updated: 2017/11/02 20:27:58 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,19 @@ typedef struct		s_buffer
 	size_t		size_bytes;
 }					t_buffer;
 
-int					parse_format(const char *format, t_parsing *parsing,
-						va_list *ap);
-void				buffer_init();
-void				buffer_add(const void *content, size_t size);
-char				*buffer_get(void);
-size_t				buffer_getinfo(void);
-void				buffer_clear(void);
+int					parse_format(const char *format, t_parsing *parsin,
+		va_list *ap);
+void				buffer_init(t_buffer *buff);
+void				buffer_add(t_buffer *buff, const void *content,
+		size_t size);
+char				*buffer_get(t_buffer *buff);
+size_t				buffer_getinfo(t_buffer *buff);
+void				buffer_clear(t_buffer *buff);
 char				*convert_dioux(t_parsing *p, va_list *ap,
 						size_t *nbytes);
 char				*convert_sc(t_parsing *p, va_list *ap,
 						size_t *nbytes);
-void				convert_extra(t_parsing *p, va_list *ap,
+void				convert_extra(t_buffer *buff, t_parsing *p, va_list *ap,
 						size_t *nbytes);
 long long			get_ll_arg(t_parsing *p, va_list *ap, long long *arg);
 unsigned long long	get_llu_arg(t_parsing *p, va_list *ap,

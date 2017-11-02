@@ -6,7 +6,7 @@
 /*   By: thugo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 19:03:23 by thugo             #+#    #+#             */
-/*   Updated: 2017/10/31 18:23:57 by thugo            ###   ########.fr       */
+/*   Updated: 2017/11/02 02:32:34 by thugo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ char				*ft_strfjoin(char *s1, int f1, char *s2, int f2);
 char				*ft_strnjoin(char const *s1, char const *s2, size_t len);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplits(char const *s, char *c);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int nbr, const char *base);
 char				*ft_llitoa_base(long long nbr, const char *base);
